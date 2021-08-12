@@ -1,0 +1,16 @@
+extends layout
+
+block content
+
+  h1 #{title}
+          
+  form(method='POST' action='')
+    div.form-group
+      label(for='name') Publisher:
+      input#name.form-control(type='text', placeholder='Ghost Writing Office' name='name' required='true' value=(undefined===publisher ? '' : publisher.name) )
+    button.btn.btn-primary(type='submit') Submit
+
+  if errors 
+    ul
+      for error in errors
+        li!= error.msg
